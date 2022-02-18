@@ -17,7 +17,7 @@ const CharacterCanvas = () => {
         context.scale(2, 2);
         context.lineCap = 'round';
         context.strokeStyle = 'white';
-        context.lineWidth = 5;
+        context.lineWidth = 10;
         contextRef.current = context;
     }, []);
 
@@ -42,6 +42,12 @@ const CharacterCanvas = () => {
         contextRef.current.stroke();
     };
 
+    const handleButtonClick = function(event){
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
     return (
         <div className='character-canvas'>
             <h1>Try drawing your favourite character on the canvas below!</h1>
@@ -51,6 +57,7 @@ const CharacterCanvas = () => {
             onMouseMove={draw}
             ref={canvasRef}
             />
+            <button onClick={handleButtonClick}>Start over</button>
         </div>
     )
 }
