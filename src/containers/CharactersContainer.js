@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CharacterSelector from "../components/CharacterSelector";
 import CharacterDetail from "../components/CharacterDetail";
 import FavouriteCharacters from "../components/FavouriteCharacters";
+import CharacterCanvas from "../components/CharacterCanvas";
 
 const CharactersContainer = () => {
 
@@ -35,6 +36,7 @@ const CharactersContainer = () => {
             <CharacterSelector allCharacters={allCharacters} onCharacterClick={onCharacterClick} />
             {selectedCharacter ? <CharacterDetail character={selectedCharacter} onButtonClick={onButtonClick} /> : null}
             <FavouriteCharacters favouriteCharacters={favouriteCharacters} />
+            <CharacterCanvas />
         </div>
     )
 }
